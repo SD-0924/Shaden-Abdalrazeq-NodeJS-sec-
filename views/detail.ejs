@@ -1,0 +1,32 @@
+<!--viewing the content of a specific file-->
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Detail</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>File Detail: <%= filename %></h1>
+    <p><strong>Content:</strong></p>
+    <pre><%= content %></pre> <!-- Display file content -->
+    
+    <h3>Updating File Name</h3>
+    <form action="/files/<%= filename %>?_method=PUT" method="POST">
+        <label for="filename">New File Name:</label>
+        <input type="text" id="newFilename" name="newFilename" required>
+        <button type="submit">Rename</button>
+    </form>
+
+
+    <form action="/files/<%= filename %>?_method=DELETE" method="POST">
+        <button type="submit">Delete File</button>
+    </form>
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
